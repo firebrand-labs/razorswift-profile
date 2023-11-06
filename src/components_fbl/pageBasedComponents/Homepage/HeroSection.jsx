@@ -164,7 +164,7 @@ const HeroSection = () => {
                     fontWeight: '500',
                   }}
                 >
-                  ENABLINGING
+                  ENABLING
                 </Typography>
                 GROWTH.
               </Typography>
