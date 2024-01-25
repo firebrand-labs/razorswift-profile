@@ -238,24 +238,20 @@ const MeettheTeam = () => {
         <Box ref={popUpContentRef} className="midpage">
           <Box className="finalpage">
             <Container sx={{ paddingTop: '30px' }}>
-              <Grid sx={{ width: '100%' }} container alignItems="center">
+              <Grid
+                sx={{
+                  width: '100%',
+                  flexDirection: { xs: 'column-reverse', md: 'row' },
+                }}
+                container
+                alignItems="center"
+              >
                 <Grid
                   sx={{ marginTop: { xs: '-25px', md: '' } }}
                   item
                   xs={12}
                   lg={2}
-                >
-                  <Image
-                    alt="closesvg"
-                    onClick={handleClosebutton}
-                    style={{
-                      cursor: 'pointer',
-                      height: 'auto',
-                      width: '50px',
-                    }}
-                    src={Aboutusimagepathway.close}
-                  />
-                </Grid>
+                ></Grid>
 
                 <Grid justifyContent="center" item xs={12} lg={8}>
                   <motion.div transition={{ staggerChildren: 1.9 }}>
@@ -265,7 +261,14 @@ const MeettheTeam = () => {
                       whileInView={'onscreen'}
                       viewport={{ once: true }}
                     >
-                      <Box sx={{ marginTop: { xs: '30px', md: '' } }}>
+                      <Box
+                        sx={{
+                          marginTop: { xs: '30px', md: '' },
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                        }}
+                      >
                         <Typography
                           sx={{
                             fontSize: '44px',
@@ -280,6 +283,20 @@ const MeettheTeam = () => {
                         >
                           {content.person[0].designation}
                         </Typography>
+                        <Link
+                          href={`${content.person[0].link}`}
+                          style={secstyle}
+                        >
+                          <Image
+                            alt="closesvg"
+                            style={{
+                              cursor: 'pointer',
+                              height: 'auto',
+                              width: '40px',
+                            }}
+                            src={Aboutusimagepathway.linkedin}
+                          />
+                        </Link>
                       </Box>
                     </motion.div>
                   </motion.div>
@@ -288,23 +305,25 @@ const MeettheTeam = () => {
                 <Grid
                   sx={{
                     display: 'flex',
-                    justifyContent: { xs: 'center', md: 'end' },
+                    justifyContent: { xs: 'end', md: 'end' },
+                    width: '100%',
                   }}
                   item
                   xs={12}
                   lg={2}
                 >
-                  <Link href={`${content.person[0].link}`} style={secstyle}>
+                  <Stack>
                     <Image
                       alt="closesvg"
+                      onClick={handleClosebutton}
                       style={{
                         cursor: 'pointer',
                         height: 'auto',
-                        width: '40px',
+                        width: '50px',
                       }}
-                      src={Aboutusimagepathway.linkedin}
+                      src={Aboutusimagepathway.close}
                     />
-                  </Link>
+                  </Stack>
                 </Grid>
               </Grid>
 
